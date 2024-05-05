@@ -8,7 +8,7 @@
       <mat-list>
         <a mat-list-item> Home </a>
         <a mat-list-item> Usuarios </a>
-        <a mat-list-item> Materias </a>
+        <a mat-list-item> Examenes </a>
         <a mat-list-item> Carreras </a>
 
 
@@ -18,8 +18,8 @@
 <!--    Sidebar    -->
 
 
-<!--   Contenido a la derecha  -->
-    <div class="example-sidenav-content">
+<!--   Contenido a la derecha  
+    <div class="example-sidenav-content"> -->
      
 
 <!--   Toolbar superior   -->
@@ -38,14 +38,10 @@
     </mat-toolbar>
 
     <main style="padding: 1rem">
-    <app-users/>
+       <!--   <app-users/>  -->
+       <!-- Acá va a mostrar el /dashboard y las rutas hijas -->
+       <router-outlet/>
+   
     </main>
 
-<!--   Toolbar superior   -->
-
-     <!-- <button type="button" mat-button (click)="drawer.toggle()">
-        Toggle sidenav
-      </button> -->
-    </div>
-
-  </mat-drawer-container>
+</mat-drawer-container>

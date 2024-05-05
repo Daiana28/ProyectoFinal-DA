@@ -10,8 +10,8 @@ export class ExamenesComponent {
 
   displayedColumns: string[] = [
     'id',
-    'firstName', 
-    'lastName', 
+    'materia', 
+    'carrera', 
     'createdAt',
     'actions',
   ];

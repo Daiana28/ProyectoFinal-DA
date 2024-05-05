@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CarrerasComponent } from './carreras.component';
 
+import { CarrerasRoutingModule } from './carreras-routing.module';
+import { CarrerasComponent } from './carreras.component';
 
 
 @NgModule({
@@ -9,7 +10,8 @@ import { CarrerasComponent } from './carreras.component';
     CarrerasComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CarrerasRoutingModule
   ]
 })
 export class CarrerasModule { }

@@ -2,13 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
-
+import { AuthComponent } from './auth.component';
+import { SharedModule } from '../../shared/shared.module';
+import { AuthService } from './Service/auth.service';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    AuthRoutingModule
-  ]
+  declarations: [AuthComponent],
+  imports: [CommonModule, 
+    SharedModule, 
+    AuthRoutingModule,
+    MatCardModule,
+  ],
 })
-export class AuthModule { }
+export class AuthModule {}

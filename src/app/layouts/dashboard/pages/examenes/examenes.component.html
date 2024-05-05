@@ -1,12 +1,7 @@
   <!--- Note: Acá voy a mostrar una tabla con las fechas de examenes, id de examenes, materia, y carrera -->
 
 
-<div class="d-flex justify-content-end mb-3">
-  <button mat-button color="primary">
-    Crear usuario
-  </button>
-</div>
-
+  <h1> funciona </h1>
 
 <table mat-table [dataSource]="examenes" class="mat-elevation-z8">
 
@@ -25,7 +20,7 @@
   <!-- lastName Column -->
   <ng-container matColumnDef="carrera">
     <th mat-header-cell *matHeaderCellDef> Carrera </th>
-    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.carrera}} </td>
   </ng-container>
 
     <!-- date Column -->
