@@ -13,6 +13,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { SharedModule } from '../../shared/shared.module';
 import { ValidationErrors } from '@angular/forms';
 import { ValidationsErrorsPipe } from '../../shared/pipe/Validations-errors.pipe';
+import { ExamenesModule } from './pages/examenes/examenes.module';
 
 
 
@@ -28,6 +29,7 @@ import { ValidationsErrorsPipe } from '../../shared/pipe/Validations-errors.pipe
     UsersModule,
     MatSelectModule,
     SharedModule,
+    ExamenesModule,
 
   ],
   exports: [DashboardComponent],
