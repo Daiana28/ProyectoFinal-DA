@@ -4,10 +4,9 @@ import { Iexamenes } from './models';
 @Component({
   selector: 'app-examenes',
   templateUrl: './examenes.component.html',
-  styleUrl: './examenes.component.scss'
+  styleUrls: ['./examenes.component.scss']
 })
 export class ExamenesComponent {
-
   displayedColumns: string[] = [
     'id',
     'materia', 
@@ -16,21 +15,34 @@ export class ExamenesComponent {
     'actions',
   ];
 
+  examenes: Iexamenes[] = [];
 
-  examenes: Iexamenes[] = [
-    {
-      id: 1,
-      materia: 'Introducción al Diseño gráfico',
-      carrera: 'Tec. Diseño gráfico',
-      createdAt: new Date(),
-    },
+  constructor() {
+    this.cargarExamenes();
+  }
 
-    {
-      id: 2,
-      materia: 'Tipografía',
-      carrera: 'Tec. Diseño gráfico',
-      createdAt: new Date(),
-    },
-  ];
+  async cargarExamenes() {
+    // Simulando una operación asincrónica con un retardo de 1 segundo
+    await this.simularRetardo(1000);
 
+    // Datos simulados obtenidos de una API ficticia
+    this.examenes = [
+      {
+        id: 1,
+        materia: 'Introducción al Diseño gráfico',
+        carrera: 'Tec. Diseño gráfico',
+        createdAt: new Date(),
+      },
+      {
+        id: 2,
+        materia: 'Tipografía',
+        carrera: 'Tec. Diseño gráfico',
+        createdAt: new Date(),
+      },
+    ];
+  }
+
+  private simularRetardo(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 }
