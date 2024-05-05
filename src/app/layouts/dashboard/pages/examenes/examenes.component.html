@@ -1,5 +1,11 @@
   <!--- Note: Acá voy a mostrar una tabla con las fechas de examenes, id de examenes, materia, y carrera -->
 
+  <div *ngIf="cargandoDatos; else mostrarDatos">
+    <!-- Barra de carga -->
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+
+  <ng-template #mostrarDatos>
   <table mat-table [dataSource]="examenes" class="mat-elevation-z8">
 
     <!--  ID Column -->
@@ -37,3 +43,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
+
+</ng-template>

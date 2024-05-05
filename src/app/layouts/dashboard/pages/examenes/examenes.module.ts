@@ -7,6 +7,7 @@ import { examenesRoutingModule } from './examenes-routing.module';
 
 import { MatTableModule } from '@angular/material/table';
 import { SharedModule } from '../../../../shared/shared.module';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -19,7 +20,8 @@ import { SharedModule } from '../../../../shared/shared.module';
     CommonModule,
     MatTableModule,
     SharedModule,
-    examenesRoutingModule
+    examenesRoutingModule,
+    MatProgressBarModule,
   ],
   exports: [ExamenesComponent],
 })

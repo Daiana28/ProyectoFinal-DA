@@ -1,1 +1,98 @@
 <p>carreras works!</p>
+
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Tec. Diseño gráfico
+        </mat-panel-title>
+
+        <mat-panel-description>
+          Duración de la carrera: 4 años.
+        </mat-panel-description>
+
+      </mat-expansion-panel-header>
+      <p>This is the primary content of the panel.</p>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+
+        <mat-panel-title>
+          41 materias
+        </mat-panel-title>
+
+        <mat-panel-description>
+          Materias view {{panelOpenState ? 'open' : 'closed'}}
+        </mat-panel-description>
+
+
+      </mat-expansion-panel-header>
+        <!---<p>I'm visible because I am open</p>  -->
+        <h3> Primer año </h3> 
+        <p> 1276	INTRODUCCIÓN AL DISEÑO GRÁFICO		CU	6	--
+            1277	DISEÑO GRÁFICO DIGITAL I		CU	3	--
+            1278	TECNOLOGÍA GRÁFICA I		CU	3	--
+            1279	ELEMENTOS DE DISEÑO I		CU	3	--
+            1280	DISEÑO GRÁFICO I		CU	6	--
+            1281	INTRODUCCIÓN A LA HISTORIA DEL DISEÑO		CU	3	--
+            1282	DISEÑO GRÁFICO DIGITAL II		CU	3	1277(R)
+            1283	TIPOGRAFÍA I		CU	3	--
+            1284	FOTOGRAFÍA		CU	3	-- </p>
+
+          <h3>  Segundo Año </h3> 
+          <p>   CÓD.	ASIGNATURA	O.	D.	H.	CORREL. CURSOS
+            1285	DISEÑO GRÁFICO II		CU	6	1276(R), 1280(R)
+            1286	HISTORIA DEL DISEÑO I		CU	3	--
+            1287	TEORÍA DE LA COMUNICACIÓN		CU	3	--
+            1288	ELEMENTOS DE DISEÑO II		CU	3	1279(R)
+            1289	DISEÑO GRÁFICO III		CU	6	1285(R)
+            1290	TIPOGRAFÍA II		CU	3	1283(R)
+            1291	TECNOLOGÍA GRÁFICA II		CU	3	1278(R)
+            1292	DISEÑO GRÁFICO DIGITAL III		CU	3	1282(R)
+            1293	ESTRUCTURAS PUBLICITARIAS		CU	3	-- </p>
+            
+            <h3> Tercer Año </h3> 
+            <p>    CÓD.	ASIGNATURA	O.	D.	H.	CORREL. CURSOS
+            1294	DISEÑO GRÁFICO IV		CU	6	1288(R)
+            1295	HISTORIA DEL DISEÑO II		CU	3	1286(R)
+            1297	DISEÑO GRÁFICO V		CU	6	1294(R)
+            1298	LEGISLACIÓN		CU	3	--
+            1300	SEMIÓTICA DEL LENGUAJE PUBLICITARIO		CU	3	--
+            1301	EDITORIAL		CU	3	--
+            1302	DISEÑO DE IMAGEN AUDIOVISUAL		CU	3	--
+            1304	PROMOCIÓN DE VENTAS		CU	3	--
+            1305	DISEÑO DE PRODUCTOS Y ENVASES		CU	3	--
+            1306	ATENCIÓN DE CUENTAS		CU	3	-- </p>
+
+          <h3>   Cuarto Año </h3> 
+          <p>  CÓD.	ASIGNATURA	O.	D.	H.	CORREL. CURSOS
+            1307	CREACIÓN SONORA		CU	6	--
+            1308	PLANIFICACIÓN Y GESTIÓN DE PROYECTOS COMUNICACIONALES		CU	6	--
+            1309	MÉTODOS Y TÉCNICOS DE INVESTIGACIÓN Y DOCUMENTACIÓN		CU	5	--
+            1310	PRÁCTICA PROFESIONAL		CU	5	--
+            1311	PROYECTO FINAL DE TESIS		CU	5	42 Asig. Reg.
+            2.OP.1°-2.OP.2°-1.OP.3°-4.OP.4°
+            CÓD.	ASIGNATURA	O.	D.	H.	CORREL. CURSOS
+            Debe aprobar 9 asignaturas del grupo (A) para recibirse
+            1313	ESTÉTICA(A)	Opt.A	CU	4	--
+            1314	PSICOLOGÍA DE LA COMUNICACIÓN(A)	Opt.A	CU	4	--
+            1315	ARTE CONTEMPORÁNEO Y EXPERIMENTACIÓN(A)	Opt.A	CU	4	--
+            90501	INGLÉS I(A)	Opt.A	CU	4	--
+            1316	GUIÓN(A)	Opt.A	CU	4	--
+            1317	REALIZACIÓN MULTIMEDIAL(A)	Opt.A	CU	4	--
+            1318	ILUMINACIÓN Y CÁMARA(A)	Opt.A	CU	4	--
+            1319	EDICIÓN AUDIOVISUAL(A)	Opt.A	CU	4	--
+            1320	EFECTOS ESPECIALES Y ANIMACIÓN(A)	Opt.A	CU	4	--
+            1321	LABORATORIO - TRATAMIENTO DIGITAL DE IMAGEN(A)	Opt.A	CU	4	--
+            1322	ANIMACIÓN DIGITAL(A)	Opt.A	CU	4	--
+            91008	PRINCIPIOS DE MARKETING(A)	Opt.A	CU	4	--
+            1323	PLANIFICACIÓN DE MEDIOS(A)	Opt.A	CU	4	--
+            1324	OPINIÓN PÚBLICA Y AUDIENCIAS(A)	Opt.A	CU	4	--
+            1325	REDACCIÓN PUBLICITARIA(A)	Opt.A	CU	4	--
+            1326	TEORÍA DE LA PERSUACIÓN(A)	Opt.A	CU	4	--
+            1327	PROMOCIÓN Y COMUNICACIONES DIRECTAS(A)	Opt.A	CU	4	--
+        </p>
+
+    </mat-expansion-panel>
+  </mat-accordion>

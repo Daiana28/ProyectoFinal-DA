@@ -16,6 +16,7 @@ export class ExamenesComponent {
   ];
 
   examenes: Iexamenes[] = [];
+  cargandoDatos: boolean = false;
 
   constructor() {
     this.cargarExamenes();

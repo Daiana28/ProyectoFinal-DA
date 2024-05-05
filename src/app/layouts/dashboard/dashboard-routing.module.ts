@@ -28,6 +28,12 @@ const routes: Routes = [
     path: 'carreras',
     loadChildren: () => import('./pages/carreras/carreras.module').then ((m) => m.CarrerasModule),
   },
+
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'dashboard',
+  },
 ];
 
 @NgModule({
