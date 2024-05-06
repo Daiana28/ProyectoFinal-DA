@@ -6,6 +6,7 @@ import { AuthComponent } from './auth.component';
 import { SharedModule } from '../../shared/shared.module';
 import { AuthService } from './Service/auth.service';
 import {MatCardModule} from '@angular/material/card';
+import { MatLabel } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [AuthComponent],
@@ -13,6 +14,7 @@ import {MatCardModule} from '@angular/material/card';
     SharedModule, 
     AuthRoutingModule,
     MatCardModule,
+    MatLabel,
   ],
 })
 export class AuthModule {}

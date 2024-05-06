@@ -6,10 +6,10 @@
     <mat-drawer [opened]="true" #drawer class="example-sidenav"
     [mode]="isMobile() ? 'over' : 'side'">
       <mat-list>
-        <a mat-list-item> Home </a>
-        <a mat-list-item> Usuarios </a>
-        <a mat-list-item> Examenes </a>
-        <a mat-list-item> Carreras </a>
+        <a routerLink="home" mat-list-item> Home </a>
+        <a routerLink="users" mat-list-item> Usuarios </a>
+        <a routerLink="examenes" mat-list-item> Examenes </a>
+        <a routerLink="carreras" mat-list-item> Carreras </a>
 
 
       </mat-list>

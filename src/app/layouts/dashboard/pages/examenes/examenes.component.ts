@@ -16,13 +16,14 @@ export class ExamenesComponent {
   ];
 
   examenes: Iexamenes[] = [];
-  cargandoDatos: boolean = false;
+  cargandoDatos: boolean = true;
 
   constructor() {
     this.cargarExamenes();
   }
 
   async cargarExamenes() {
+    this.cargandoDatos = true;
     // Simulando una operación asincrónica con un retardo de 1 segundo
     await this.simularRetardo(1000);
 
@@ -41,6 +42,8 @@ export class ExamenesComponent {
         createdAt: new Date(),
       },
     ];
+        // Ocultar la barra de progreso después de cargar los datos
+        this.cargandoDatos = false;
   }
 
   private simularRetardo(ms: number): Promise<void> {
