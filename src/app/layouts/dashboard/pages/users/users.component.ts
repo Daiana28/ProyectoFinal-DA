@@ -22,25 +22,27 @@ export class UsersComponent {
   ];
 
 
-  users: IUser[] = [
-    {
-      id: 1,
-      firstName: 'Fernando',
-      lastName: 'Jimenez',
-      email: 'ferve91@gmail.com',
-      role: 'ADMIN',
-      createdAt: new Date(),
-    },
+  users: IUser[] = [];
 
-    {
-      id: 2,
-      firstName: 'Julieta',
-      lastName: 'Sbarra',
-      email: 'ju.sbarra@gmail.com',
-      role: 'USER',
-      createdAt: new Date(),
-    },
-  ];
+  //users: IUser[] = [
+  //  {
+  //    id: 1,
+  //    firstName: 'Fernando',
+  //   lastName: 'Jimenez',
+  //    email: 'ferve91@gmail.com',
+  //    role: 'ADMIN',
+  //    createdAt: new Date(),
+  //  },
+
+  //  {
+  //    id: 2,
+  //    firstName: 'Julieta',
+  //    lastName: 'Sbarra',
+  //    email: 'ju.sbarra@gmail.com',
+  //    role: 'USER',
+  //    createdAt: new Date(),
+  //  },
+  //];
 
   
   constructor(private matdialog: MatDialog) { }

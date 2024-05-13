@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from '../../../../shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { SharedModule } from '../../../../shared/shared.module';
     MatIconModule,
     ReactiveFormsModule,
     SharedModule,
+    HttpClientModule
   ],
   exports: [UsersComponent],
 })

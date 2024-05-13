@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "firstName": "Daiana",
+      "lastName": "Alarcon",
+      "email": "daiana.mee@gmail.com",
+      "role": "ADMIN",
+      "createdAt": "2024-04-30T01:14:53.907Z",
+      "id": "c600"
+      
+    },
+    {
+      "firstName": "Daiana",
+      "lastName": "Jimenez",
+      "email": "jimenez-dai@gmail.com",
+      "role": "USER",
+      "createdAt": "2024-04-30T01:14:53.907Z",
+      "id": "c601" 
+      }
+  ],
+  "exams": [],
+  "careers": []
+}
