@@ -1,16 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IUser } from './models';
 import { MatDialog } from '@angular/material/dialog';
 import { UserDialogComponent } from './components/user-dialog/user-dialog.component';
+import { UsersService } from './users.service';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrl: './users.component.scss',
-
+  styleUrls: ['./users.component.scss']
 })
-
-export class UsersComponent {
+export class UsersComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
     'firstName', 
@@ -21,69 +20,51 @@ export class UsersComponent {
     'actions',
   ];
 
-
   users: IUser[] = [];
+  error: string = '';
 
-  //users: IUser[] = [
-  //  {
-  //    id: 1,
-  //    firstName: 'Fernando',
-  //   lastName: 'Jimenez',
-  //    email: 'ferve91@gmail.com',
-  //    role: 'ADMIN',
-  //    createdAt: new Date(),
-  //  },
+  constructor(private matDialog: MatDialog, private usersService: UsersService) { }
 
-  //  {
-  //    id: 2,
-  //    firstName: 'Julieta',
-  //    lastName: 'Sbarra',
-  //    email: 'ju.sbarra@gmail.com',
-  //    role: 'USER',
-  //    createdAt: new Date(),
-  //  },
-  //];
-
-  
-  constructor(private matdialog: MatDialog) { }
-
-  openDialog(editingUser?: IUser) : void {
-    this.matdialog
-    .open(UserDialogComponent, {
-      data: editingUser,
-    }
-
-
-    )
-    .afterClosed()
-    .subscribe({
-      next: (result) => {
-        if (result) 
-          { 
-// Actualizar usuario en el array
-            if (editingUser){
-              this.users = this.users.map((u)  => u.id === editingUser.id ? { ...u, ...result}: u
-            );
-
-            } else{
-// Logica de crear el usuario
-            result.id = new Date().getTime().toString().substring(0,1);
-            result.createdAt = new Date();
-            this.users = [...this.users, result];
-      }
-      }
-    },
-    });
-}
-
-
-  ondeleteUser(id:number): void{
-    if (confirm ('¿Estás seguro de eliminar este ítem?')) {
-      this.users = this.users.filter((u) => u.id != id);
+  ngOnInit(): void {
+    this.getUsers();
   }
 
+  getUsers(): void {
+    this.usersService.getUsers().subscribe({
+      next: (data) => this.users = data,
+      error: (err) => this.error = err
+    });
+  }
+
+  openDialog(editingUser?: IUser): void {
+    this.matDialog
+      .open(UserDialogComponent, {
+        data: editingUser,
+      })
+      .afterClosed()
+      .subscribe({
+        next: (result) => {
+          if (result) {
+            // Actualizar usuario en el array
+            if (editingUser) {
+              this.users = this.users.map((u) => u.id === editingUser.id ? { ...u, ...result } : u);
+            } else {
+              // Lógica de crear el usuario
+              result.id = new Date().getTime().toString().substring(0, 1);
+              result.createdAt = new Date();
+              this.users = [...this.users, result];
+            }
+          }
+        }
+      });
+  }
+
+  onDeleteUser(id: number): void {
+    if (confirm('¿Estás seguro de eliminar este ítem?')) {
+      this.users = this.users.filter((u) => u.id !== id);
+    }
+  }
 }
 
-}
 
 
