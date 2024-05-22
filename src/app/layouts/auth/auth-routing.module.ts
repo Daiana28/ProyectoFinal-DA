@@ -6,10 +6,9 @@ import { AuthComponent } from './auth.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path:'',
     component: AuthComponent,
   },
-
 ];
 
 

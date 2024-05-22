@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { environment } from '../enviroments/enviroment.development';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,10 @@ import { RouterModule } from '@angular/router';
 })
 export class AppComponent {
   title = 'ProyectoFinal-AlarconDaiana';
+
+  constructor() {
+    if (!environment.isProd) {
+      console.log(environment);
+    }
+  }
 }

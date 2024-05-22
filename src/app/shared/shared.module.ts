@@ -12,6 +12,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { ValidationsErrorsPipe } from './pipe/Validations-errors.pipe';
 import { ResaltadoDirective } from './directives/resaltado.directive';
 import { MatListModule } from '@angular/material/list';
+import { AuthModule } from '../layouts/auth/auth.module';
 
 
 
@@ -32,7 +33,7 @@ import { MatListModule } from '@angular/material/list';
     ReactiveFormsModule,
     ValidationsErrorsPipe,
     MatListModule,
-    ResaltadoDirective,
+    ResaltadoDirective
   ],
 
   declarations: [ValidationsErrorsPipe, ResaltadoDirective],

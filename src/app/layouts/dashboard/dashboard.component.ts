@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth/Service/auth.service';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +11,7 @@ export class DashboardComponent {
 
     mostrarComponent= true;
 
-    constructor (private authservice: AuthService) {}
+    constructor (private AuthService: AuthService) {}
 
    // login() : void this.authservice.login()}
 

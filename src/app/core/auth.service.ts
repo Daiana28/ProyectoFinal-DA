@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { IUser } from '../../dashboard/pages/users/models';
-import { LoginData } from '../models';
+import { IUser } from '../layouts/dashboard/pages/users/models';
+import { LoginData } from '../layouts/auth/models';
 import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
@@ -9,9 +9,9 @@ export class AuthService {
   private MOCK_AUTH_USER: IUser = {
     id: 1,
     createdAt: new Date(),
-    email: 'email@mail.com',
-    firstName: 'Fernando',
-    lastName: 'Jimenez',
+    email: 'daiana@gmail.com',
+    firstName: 'daiana',
+    lastName: 'alarcon',
     role: 'ADMIN',
   };
 
@@ -21,7 +21,7 @@ export class AuthService {
   constructor(private router: Router) {}
 
   login(data: LoginData): void {
-    if (data.email !== 'user@mail.com' || data.password !== '123456') {
+    if (data.email !== 'daiana@gmail.com' || data.password !== '123456') {
       alert('Correo o password incorrectos');
     } else {
       this._authUser$.next(this.MOCK_AUTH_USER);

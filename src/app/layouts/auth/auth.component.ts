@@ -1,37 +1,37 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AuthService } from './Service/auth.service';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../core/auth.service';
+import { Router } from '@angular/router';
+import { LoginData } from './models';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrl: './auth.component.scss',
+  styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent implements OnDestroy, OnInit {
+export class AuthComponent implements OnInit {
   loginForm: FormGroup;
+  errorMessage: string = '';
 
   constructor(
+    private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router,
-    private fb: FormBuilder
+    private router: Router
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {}
 
-  ngOnDestroy(): void {}
-
   login() {
-    console.log('HOLA');
-    if (this.loginForm.invalid) {
-      this.loginForm.markAllAsTouched();
+    if (this.loginForm.valid) {
+      const loginData: LoginData = this.loginForm.value;
+      this.authService.login(loginData);
     } else {
-      this.authService.login(this.loginForm.getRawValue());
+      this.errorMessage = 'Formulario no válido';
     }
   }
 }

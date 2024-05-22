@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DashboardModule } from './layouts/dashboard/dashboard.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './core/auth.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(), AuthService
   ],
   bootstrap: [AppComponent]
 })
