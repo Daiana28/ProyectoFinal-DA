@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CarrerasRoutingModule } from './carreras-routing.module';
 import { CarrerasComponent } from './carreras.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { MatAccordion } from '@angular/material/expansion';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     CommonModule,
     CarrerasRoutingModule,
     MatExpansionModule,
+    MatAccordion
   ]
 })
 export class CarrerasModule { }

@@ -7,6 +7,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { DashboardModule } from './layouts/dashboard/dashboard.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './core/auth.service';
+import { StoreModule } from '@ngrx/store';
+import { metaReducers, reducers} from './store';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { AuthService } from './core/auth.service';
     BrowserModule,
     AppRoutingModule,
     DashboardModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(reducers, { metaReducers })
   ],
   providers: [
     provideAnimationsAsync(), AuthService

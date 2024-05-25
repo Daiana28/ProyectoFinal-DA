@@ -1,37 +1,54 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 import { Router } from '@angular/router';
-import { LoginData } from './models';
+import { Subscription } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { authActions } from '../../store/auth/auth.actions';
+import { authUser } from '../../store/auth/auth.selectors';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+  styleUrl: './auth.component.scss',
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent implements OnDestroy, OnInit {
   loginForm: FormGroup;
-  errorMessage: string = '';
+
+  authUserSubscription?: Subscription;
 
   constructor(
-    private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private fb: FormBuilder,
+    private store: Store
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authUserSubscription = this.store.select(authUser).subscribe({
+      next: (user) => {
+        if (user) this.router.navigate(['dashboard', 'home']);
+      },
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.authUserSubscription?.unsubscribe();
+  }
 
   login() {
-    if (this.loginForm.valid) {
-      const loginData: LoginData = this.loginForm.value;
-      this.authService.login(loginData);
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
     } else {
-      this.errorMessage = 'Formulario no válido';
+      // this.authService.login(this.loginForm.getRawValue());
+      this.store.dispatch(
+        authActions.login({ payload: this.loginForm.getRawValue() })
+      );
     }
   }
 }

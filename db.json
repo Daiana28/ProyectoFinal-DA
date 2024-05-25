@@ -17,6 +17,13 @@
       "createdAt": "2024-04-30T01:14:53.907Z"
     }
   ],
-  "exams": [],
-  "careers": []
+  "examenes": [
+    {
+      "createdAt":"2024-04-30T01:14:53.907Z",
+      "materia":"Introducción Diseño Grafico",
+      "carrera":"Tecnicatura en Diseño Grafico"
+    }
+
+  ],
+  "carreras": []
 }

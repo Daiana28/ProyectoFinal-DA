@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ExamenesService } from './examenes.service';
 import { Iexamenes } from './models';
 
 @Component({
@@ -6,47 +7,36 @@ import { Iexamenes } from './models';
   templateUrl: './examenes.component.html',
   styleUrls: ['./examenes.component.scss']
 })
-export class ExamenesComponent {
-  displayedColumns: string[] = [
-    'id',
-    'materia', 
-    'carrera', 
-    'createdAt',
-    'actions',
-  ];
-
+export class ExamenesComponent implements OnInit {
+  displayedColumns: string[] = ['createdAt', 'materia', 'carrera', 'acciones'];
   examenes: Iexamenes[] = [];
   cargandoDatos: boolean = true;
 
-  constructor() {
+  constructor(private examenesService: ExamenesService) {}
+
+  ngOnInit(): void {
     this.cargarExamenes();
   }
 
-  async cargarExamenes() {
+  cargarExamenes(): void {
     this.cargandoDatos = true;
-    // Simulando una operación asincrónica con un retardo de 1 segundo
-    await this.simularRetardo(1000);
-
-    // Datos simulados obtenidos de una API ficticia
-    this.examenes = [
-      {
-        id: 1,
-        materia: 'Introducción al Diseño gráfico',
-        carrera: 'Tec. Diseño gráfico',
-        createdAt: new Date(),
-      },
-      {
-        id: 2,
-        materia: 'Tipografía',
-        carrera: 'Tec. Diseño gráfico',
-        createdAt: new Date(),
-      },
-    ];
-        // Ocultar la barra de progreso después de cargar los datos
+    this.examenesService.getExamenes().subscribe((data) => {
+      // Simula un retardo de 1,5 segundos
+      setTimeout(() => {
+        console.log(data); // Verificar datos recibidos
+        this.examenes = data;
         this.cargandoDatos = false;
+      }, 1500); 
+    }, (error) => {
+      console.error('Error al cargar exámenes:', error);
+      this.cargandoDatos = false;
+    });
   }
 
-  private simularRetardo(ms: number): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, ms));
+  inscribirse(examenId: number): void {
+    this.examenesService.inscribirseExamen(examenId).subscribe(() => {
+      alert('Inscripción exitosa');
+    });
   }
 }
+
