@@ -45,7 +45,7 @@ export class AuthComponent implements OnDestroy, OnInit {
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
     } else {
-      // this.authService.login(this.loginForm.getRawValue());
+   this.authService.login(this.loginForm.getRawValue());
       this.store.dispatch(
         authActions.login({ payload: this.loginForm.getRawValue() })
       );

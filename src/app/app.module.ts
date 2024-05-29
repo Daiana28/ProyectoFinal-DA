@@ -19,7 +19,8 @@ import { metaReducers, reducers} from './store';
     AppRoutingModule,
     DashboardModule,
     HttpClientModule,
-    StoreModule.forRoot(reducers, { metaReducers })
+    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot({}, {})
   ],
   providers: [
     provideAnimationsAsync(), AuthService
